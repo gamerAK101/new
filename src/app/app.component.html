@@ -1,0 +1,47 @@
+<div class ="container-fluid"><form #f="ngForm" name="form" (ngSubmit) = "onSubmit(f)">
+    <div class="row">
+        <div class="col-6">
+          <form>
+            <div class="form-group">
+               <label >Company:</label>
+               <input [(ngmodel)] = "vehicle.company" name="company" type="text">
+            </div>
+
+            <div class="form-group">
+               <label>Model:</label>
+               <input [(ngmodel)] = "vehicle.model" name="model" type="text">
+            </div>
+      <     <div class="form-group">
+                <label>Number:</label>
+                <input [(ngmodel)] = "vehicle.number" name="number" type="number">
+             </div>
+             <div class="form-group">
+                <label>Colour:</label>
+              <input [(ngmodel)] = "vehicle.colour" name="colour" type="text">
+             </div>
+          <button type="submit">{{isEdit ? 'update' : 'create'}}</button>
+    </form>
+    </div>
+    <div class = "col-6">
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>company</th>
+                    <th>model</th>
+                    <th>number</th>
+                    <th>colour</th>
+                </tr>
+            </thead>
+            <tbody *ngFor = "Let vehicle of VehicleList">
+                <td><i class='fas fa-edit' style='font-size:24px'></i></td>
+                <td>{{vehicle.company}}</td>
+                <td>{{vehicle.model}}</td>
+                <td>{{vehicle.number}}</td>
+                <td>{{vehicle.colour}}</td>
+                <td><i class='fas fa-trash-alt' style='font-size:24px'></i></td>
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
